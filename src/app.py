@@ -120,7 +120,8 @@ def post_people_favorites(user_id, people_id):
         return jsonify({"msg": "People added to favorites"}), 200
     except Exception as error:
         return jsonify({"error": f"{error}"}), 500
-    
+
+#Delete favorite planet with the id = planet_id.
 @app.route('/user<int:user_id>/favorite/planet/<int:planet_id>', methods=['DELETE'])
 def delete_planet_fav(user_id, planet_id):
     user = Users.query.get(user_id)
@@ -142,7 +143,8 @@ def delete_planet_fav(user_id, planet_id):
         return jsonify({"msg": "Planet deleted from favorites"}), 200
     except Exception as error:
         return jsonify({"error": f"{error}"}), 500
-    
+
+# Delete favorite people with the id = people_id.
 @app.route('/user<int:user_id>/favorite/people/<int:people_id>', methods=['DELETE'])
 def delete_people_fav(user_id, people_id):
     user = Users.query.get(user_id)
